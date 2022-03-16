@@ -4,8 +4,8 @@ const billing: any = require("./data/billing.json");
 
 const calculateFee = (code: any, days: number): number => {
     const rentalType = billing[code];
-    let total = rentalType.max ? rentalType.cost : rentalType.cost * days;
-    let lateFees = (days - rentalType.max) * rentalType.late;
+    const total = rentalType.max ? rentalType.cost : rentalType.cost * days;
+    const lateFees = (days - rentalType.max) * rentalType.late;
     return lateFees > 0 ? total + lateFees : total;
     
 }
